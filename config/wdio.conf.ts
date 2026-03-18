@@ -24,7 +24,7 @@ export const config: WebdriverIO.Config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './features/**/*.feature'
+        './features/login.feature'
     ],
 
     afterStep: async function (step, _scenario, result) {

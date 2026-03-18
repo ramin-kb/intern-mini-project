@@ -9,6 +9,7 @@
         ],
         "types": [
             "node",
+            "webdriverio",
             "@wdio/globals/types",
             "expect-webdriverio",
             "@wdio/cucumber-framework"
@@ -25,7 +26,7 @@
     },
     "include": [
         "test",
-        "wdio.conf.ts",
-        "features"
+        "**/*.ts",
+        "../../wdio.conf.ts",
     ]
 }
