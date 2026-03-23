@@ -33,25 +33,40 @@ export default class Page {
     }
 
     /**
+    * Get element text from selector or element
+    */
+    public async getElementText(selector: ChainablePromiseElement) {
+        const element = await this.getElement(selector);
+        await element.waitForDisplayed({timeout:10000});
+        return await element.getText();
+    }
+
+    /**
     * Wait for element to be clickable
     * Wait for element to be displayed
+    * Wait for element to exist
     * @param selector element selector
     * @param timeout timeout in milliseconds (default: 30000)
     */
-    public async waitForElClickable(selector: WebdriverIO.Element , timeout: number = 30000) {
+    public async waitForElClickable(selector: WebdriverIO.Element | ChainablePromiseElement, timeout: number = 30000) {
         const element = await this.getElement(selector);
         await element.waitForClickable({timeout});
     }
-    public async waitForElDisplayed(selector: WebdriverIO.Element, timeout: number = 30000) {
+    public async waitForElDisplayed(selector: WebdriverIO.Element | ChainablePromiseElement, timeout: number = 30000) {
         const element = await this.getElement(selector);
         await element.waitForDisplayed({timeout});
     }
+    public async waitForElExists(selector: WebdriverIO.Element | ChainablePromiseElement, timeout: number = 30000) {
+        const element = await this.getElement(selector);
+        await element.waitForExist({timeout});
+    }
+
 
 
     /**
     * Clear input field using multiple methods to ensure clearing works
     */
-    public async clearInputField(selector: WebdriverIO.Element) {
+    public async clearInputField(selector: WebdriverIO.Element | ChainablePromiseElement) {
         const element = await this.getElement(selector);
         await element.waitForDisplayed({timeout:10000});
         await element.click();

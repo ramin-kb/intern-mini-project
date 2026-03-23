@@ -24,7 +24,7 @@ export const config: WebdriverIO.Config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './features/login.feature'
+        './features/claim/configuration/expenseType/WEB-CLAIM-246-VerifyMultipleExpenseTypesCanBeDeletedSuccessfully.feature',
     ],
 
     afterStep: async function (step, _scenario, result) {
@@ -155,7 +155,7 @@ export const config: WebdriverIO.Config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./step-definitions/**/**/*.steps.ts'],
+        require: ['./step-definitions/**/*.ts', './support/hook.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
